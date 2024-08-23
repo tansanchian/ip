@@ -62,7 +62,7 @@ public class Handsome {
                     currSize++;
                     System.out.println("Got it. I've added this task:");
                     System.out.println(list[currSize - 1].toString());
-                    System.out.println("Now you have " + currSize + " tasks in the list");
+                    System.out.println("Now you have " + currSize + " tasks in the list.");
                 }
                 input = scanner.nextLine();
             } else if (input.startsWith("event ")) {
@@ -76,7 +76,7 @@ public class Handsome {
                     currSize++;
                     System.out.println("Got it. I've added this task:");
                     System.out.println(list[currSize - 1].toString());
-                    System.out.println("Now you have " + currSize + " tasks in the list");
+                    System.out.println("Now you have " + currSize + " tasks in the list.");
                 }
                 input = scanner.nextLine();
             } else if (input.startsWith("todo ")) {
@@ -84,7 +84,7 @@ public class Handsome {
                 currSize++;
                 System.out.println("Got it. I've added this task:");
                 System.out.println(list[currSize - 1].toString());
-                System.out.println("Now you have " + currSize + " tasks in the list");
+                System.out.println("Now you have " + currSize + " tasks in the list.");
                 input = scanner.nextLine();
             } else {
                 System.out.println("Invalid syntax");
