@@ -1,8 +1,8 @@
-public class Deadlines extends Task{
+public class Deadlines extends Task {
     private final String deadline;
-    public Deadlines(String content, String isDone, String deadline) {
+    public Deadlines(String content, String isDone, String deadline) throws InvalidTaskException {
         super(content, isDone);
-        this.deadline = deadline;
+        this.deadline = formatDate(deadline);
     }
     @Override
     public String toString() {
