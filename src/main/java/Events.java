@@ -1,10 +1,10 @@
-public class Events extends Task{
+public class Events extends Task {
     private final String startTime;
     private final String endTime;
-    public Events(String content, String isDone, String startTime, String endTime) {
+    public Events(String content, String isDone, String startTime, String endTime) throws InvalidTaskException {
         super(content, isDone);
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.startTime = formatDate(startTime);
+        this.endTime = formatDate(endTime);
     }
     @Override
     public String toString() {

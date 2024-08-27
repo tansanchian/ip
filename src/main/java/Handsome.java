@@ -66,7 +66,7 @@ public class Handsome {
                 }
             } catch (FileNotFoundException fileError) {
                 System.out.println("File not found!");
-            } catch (ArrayIndexOutOfBoundsException arrayError) {
+            } catch (ArrayIndexOutOfBoundsException | InvalidTaskException arrayError) {
                 System.out.println("Data file corrupted!");
             }
             Scanner scanner = new Scanner(System.in);
@@ -108,11 +108,13 @@ public class Handsome {
                             System.out.println(count + "." + list.get(i).toString());
                         }
                         input = scanner.nextLine();
-                    } else if (input.trim().equals("deadline") || input.trim().equals("todo") || input.trim().equals("event")) {
+                    } else if (input.trim().equals("deadline") || input.trim().equals("todo")
+                            || input.trim().equals("event")) {
                         throw new InvalidTaskException("You need provide details for " + input);
                     } else if (input.startsWith("deadline ")) {
                         if (!input.contains("/by")) {
-                            throw new InvalidTaskException("You need provide the deadline for deadline! (format: deadline <NAME> /by <DEADLINE>");
+                            throw new InvalidTaskException("You need provide the deadline for deadline!\n"
+                                    + "(format: deadline <NAME> /by yyyy-mm-dd <time in 24 hr format>");
                         } else {
                             String[] temp = input.split("/by");
                             if (temp[0].substring(9).trim().isEmpty()) {
@@ -128,7 +130,9 @@ public class Handsome {
                         input = scanner.nextLine();
                     } else if (input.startsWith("event ")) {
                         if (!input.contains("/from") || !input.contains("/to")) {
-                            throw new InvalidTaskException("You need provide start time and end time for event! (format: event <NAME> /from <START> /to <END>");
+                            throw new InvalidTaskException("You need provide start time and end time for event!\n"
+                                    + "(format: event <NAME> /from yyyy-mm-dd <time in 24 hr format> "
+                                    + "/to yyyy-mm-dd <time in 24 hr format>");
                         } else {
                             String[] temp = input.split("/from");
                             if (temp[0].substring(6).trim().isEmpty()) {
