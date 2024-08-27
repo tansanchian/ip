@@ -10,4 +10,8 @@ public class Events extends Task{
     public String toString() {
         return "[E]" + super.toString() + "(from: " + startTime + " to: " + endTime +")";
     }
+    @Override
+    public String toDataFormat() {
+        return "T | " + super.toDataFormat() + " | " + startTime + " | " + endTime;
+    }
 }

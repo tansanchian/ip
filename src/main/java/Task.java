@@ -1,4 +1,4 @@
-public class Task {
+public abstract class Task {
     public Task(String content, String isDone) {
         this.content = content;
         this.isDone = isDone;
@@ -17,5 +17,7 @@ public class Task {
     public String toString() {
         return isDone + " " + content;
     }
-
+    public String toDataFormat() {
+        return isDone + " | " + content;
+    };
 }
