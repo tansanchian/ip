@@ -12,6 +12,6 @@ public class Events extends Task{
     }
     @Override
     public String toDataFormat() {
-        return "T | " + super.toDataFormat() + " | " + startTime + " | " + endTime;
+        return "E | " + super.toDataFormat() + " | " + startTime + " | " + endTime;
     }
 }

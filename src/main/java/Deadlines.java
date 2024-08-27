@@ -10,6 +10,6 @@ public class Deadlines extends Task{
     }
     @Override
     public String toDataFormat() {
-        return "T | " + super.toDataFormat() + " | " + deadline;
+        return "D | " + super.toDataFormat() + " | " + deadline;
     }
 }
