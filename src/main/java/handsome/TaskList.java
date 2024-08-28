@@ -1,7 +1,14 @@
+package handsome;
+
+import handsome.command.ToDo;
+import handsome.exception.InvalidTaskException;
+import handsome.task.Deadline;
+import handsome.task.Event;
+import handsome.task.Task;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class TaskList {

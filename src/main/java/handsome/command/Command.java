@@ -1,3 +1,12 @@
+package handsome.command;
+
+import handsome.exception.HandsomeException;
+import handsome.exception.InvalidSyntaxException;
+import handsome.exception.ListIndexOutOfBoundException;
+import handsome.Storage;
+import handsome.TaskList;
+import handsome.Ui;
+
 import java.io.IOException;
 
 public abstract class Command {

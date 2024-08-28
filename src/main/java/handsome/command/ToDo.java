@@ -1,3 +1,7 @@
+package handsome.command;
+
+import handsome.task.Task;
+
 public class ToDo extends Task {
     public ToDo(String content, String isDone) {
         super(content, isDone);

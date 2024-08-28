@@ -1,3 +1,7 @@
+package handsome.task;
+
+import handsome.exception.InvalidTaskException;
+
 import java.time.DateTimeException;
 
 public class Deadline extends Task {

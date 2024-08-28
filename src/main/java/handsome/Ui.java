@@ -1,3 +1,5 @@
+package handsome;
+
 import java.util.Scanner;
 
 public class Ui {

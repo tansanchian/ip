@@ -1,3 +1,8 @@
+package handsome;
+
+import handsome.command.Command;
+import handsome.exception.HandsomeException;
+
 import java.io.IOException;
 
 public class Handsome {

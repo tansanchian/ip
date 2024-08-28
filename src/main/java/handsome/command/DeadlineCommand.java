@@ -1,5 +1,13 @@
+package handsome.command;
+
+import handsome.TaskList;
+import handsome.exception.HandsomeException;
+import handsome.exception.InvalidTaskException;
+import handsome.Storage;
+import handsome.Ui;
+import handsome.task.Deadline;
+
 import java.io.IOException;
-import java.util.regex.PatternSyntaxException;
 
 public class DeadlineCommand extends Command {
     private final String description;
