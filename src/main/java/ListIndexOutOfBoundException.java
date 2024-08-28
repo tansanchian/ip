@@ -1,5 +1,5 @@
 public class ListIndexOutOfBoundException extends HandsomeException{
-    public ListIndexOutOfBoundException(String msg) {
-        super(msg);
+    public ListIndexOutOfBoundException(int size) {
+        super("Invalid List Index! List has " + size + " items.");
     }
 }
