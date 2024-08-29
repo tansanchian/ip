@@ -20,7 +20,7 @@ public class DeadlineCommand extends Command {
                 throw new InvalidTaskException("You need provide task description for deadline. "
                         + "Type prompt to check the correct command.");
             }
-            description = temp[0].substring(9);
+            description = temp[0].substring(9).trim();
             deadline = temp[1].trim();
         } catch (ArrayIndexOutOfBoundsException error) {
             throw new InvalidTaskException("Invalid format for deadline! Type prompt to check the correct command.");

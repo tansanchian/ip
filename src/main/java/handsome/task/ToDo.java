@@ -1,6 +1,4 @@
-package handsome.command;
-
-import handsome.task.Task;
+package handsome.task;
 
 public class ToDo extends Task {
     public ToDo(String content, String isDone) {

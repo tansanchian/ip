@@ -25,7 +25,7 @@ public abstract class Task {
 
     @Override
     public String toString() {
-        return isDone + " " + content;
+        return isDone + " " + content + " ";
     }
 
     public String toDataFormat() {

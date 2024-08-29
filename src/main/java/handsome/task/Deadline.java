@@ -15,8 +15,8 @@ public class Deadline extends Task {
             try {
                 this.deadline = formatDate(deadline);
             } catch (DateTimeException error) {
-                throw new InvalidTaskException("Date and time must be formatted correctly for deadline! Type prompt to check the "
-                        + "correct date format");
+                throw new InvalidTaskException("Date and time must be formatted correctly for deadline! "
+                        + "Type prompt to check the correct date format");
             }
         }
     }

@@ -1,13 +1,13 @@
 package handsome.command;
 
-import handsome.exception.HandsomeException;
-import handsome.exception.InvalidSyntaxException;
-import handsome.exception.ListIndexOutOfBoundException;
+import java.io.IOException;
+
 import handsome.Storage;
 import handsome.TaskList;
 import handsome.Ui;
-
-import java.io.IOException;
+import handsome.exception.HandsomeException;
+import handsome.exception.InvalidSyntaxException;
+import handsome.exception.ListIndexOutOfBoundException;
 
 public abstract class Command {
     public abstract void execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException;

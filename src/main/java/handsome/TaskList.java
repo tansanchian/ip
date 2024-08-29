@@ -1,15 +1,15 @@
 package handsome;
 
-import handsome.command.ToDo;
-import handsome.exception.InvalidTaskException;
-import handsome.task.Deadline;
-import handsome.task.Event;
-import handsome.task.Task;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import handsome.task.ToDo;
+import handsome.exception.InvalidTaskException;
+import handsome.task.Deadline;
+import handsome.task.Event;
+import handsome.task.Task;
 
 public class TaskList {
     private final ArrayList<Task> tasks = new ArrayList<>();
@@ -31,6 +31,8 @@ public class TaskList {
                 case "E":
                     tasks.add(new Event(task[2], isDone, task[3], task[4], true));
                     break;
+                default:
+                    throw new InvalidTaskException("Error Loading");
                 }
             }
         } catch (FileNotFoundException fileError) {

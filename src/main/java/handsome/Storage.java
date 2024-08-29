@@ -15,7 +15,7 @@ public class Storage {
                     System.out.println("Failed to create directory!");
                 }
             }
-           handsome = new File("./data/handsome.txt");
+            handsome = new File("./data/handsome.txt");
             if (!handsome.exists()) {
                 if (!handsome.createNewFile()) {
                     System.out.println("File already exists but was not found earlier!");
