@@ -1,5 +1,8 @@
 package handsome;
 
+import handsome.task.Task;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ui {
@@ -77,5 +80,24 @@ public class Ui {
         System.out.println("Got it. I've added this task:");
         System.out.println(tasks.getStringOfIndex(tasks.getSize() - 1));
         System.out.println("Now you have " + tasks.getSize() + " tasks in the list.");
+    }
+
+    /**
+     * Displays the tasks that match a specified keyword to the user.
+     * If there are no matching tasks, an appropriate message is displayed. Otherwise,
+     * the matching tasks are listed with their corresponding indices.
+     *
+     * @param tasks An {@code ArrayList<Task>} containing the tasks that match the search keyword.
+     */
+    public void showMatchingTasks(ArrayList<Task> tasks) {
+        if (tasks.isEmpty()) {
+            System.out.println("There are no matching tasks in your list!");
+            return;
+        }
+        System.out.println("Here are the matching tasks in your list:");
+        int i = 1;
+        for (Task t : tasks) {
+            System.out.println(i + "." + t.toString());
+        }
     }
 }

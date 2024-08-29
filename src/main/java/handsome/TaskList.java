@@ -66,6 +66,22 @@ public class TaskList {
         tasks.add(task);
     }
 
+    /**
+     * Searches the task list for tasks that contain the specified keyword in their content.
+     *
+     * @param keyword The keyword to search for within the tasks.
+     * @return An {@code ArrayList<Task>} containing tasks that match the specified keyword.
+     */
+    public ArrayList<Task> findKeyword(String keyword) {
+        ArrayList<Task> ans = new ArrayList<>();
+        for (Task t : tasks) {
+            if (t.contains(keyword)) {
+                ans.add(t);
+            }
+        }
+        return ans;
+    }
+
     @Override
     public String toString() {
         StringBuilder data = new StringBuilder();

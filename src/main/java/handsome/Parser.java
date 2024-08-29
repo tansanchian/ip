@@ -5,6 +5,7 @@ import handsome.command.Command;
 import handsome.command.DeadlineCommand;
 import handsome.command.DeleteCommand;
 import handsome.command.EventCommand;
+import handsome.command.FindCommand;
 import handsome.command.ListCommand;
 import handsome.command.MarkCommand;
 import handsome.command.PromptCommand;
@@ -25,6 +26,8 @@ public class Parser {
             return new DeleteCommand(input);
         } else if (input.startsWith("unmark ")) {
             return new UnmarkCommand(input);
+        } else if (input.startsWith("find ")) {
+            return new FindCommand(input);
         } else if (input.equals("list")) {
             return new ListCommand();
         } else if (input.startsWith("deadline ")) {

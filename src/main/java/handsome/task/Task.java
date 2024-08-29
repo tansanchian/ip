@@ -32,6 +32,16 @@ public abstract class Task {
         return isDone + " | " + content;
     };
 
+    /**
+     * Checks if the task's content contains the specified keyword.
+     *
+     * @param keyword The keyword to search for within the task's content.
+     * @return true if the task's content contains the keyword, false otherwise.
+     */
+    public boolean contains(String keyword) {
+        return content.contains(keyword);
+    }
+
     public String formatDate(String date) {
         String[] dateAndTime = date.split(" ");
         LocalDate d = LocalDate.parse(dateAndTime[0]);
