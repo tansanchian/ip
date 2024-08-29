@@ -5,11 +5,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import handsome.task.ToDo;
 import handsome.exception.InvalidTaskException;
 import handsome.task.Deadline;
 import handsome.task.Event;
 import handsome.task.Task;
+import handsome.task.ToDo;
 
 /**
  * The TaskList class manages the list of tasks in the Handsome chatBot

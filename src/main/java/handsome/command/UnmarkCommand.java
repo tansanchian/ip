@@ -1,11 +1,11 @@
 package handsome.command;
 
+import java.io.IOException;
+
 import handsome.Storage;
 import handsome.TaskList;
 import handsome.Ui;
 import handsome.exception.HandsomeException;
-
-import java.io.IOException;
 
 /**
  * The UnmarkCommand class handles the "unmark" command, which marks a task

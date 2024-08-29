@@ -1,9 +1,9 @@
 package handsome.command;
 
-import handsome.TaskList;
-import handsome.exception.HandsomeException;
 import handsome.Storage;
+import handsome.TaskList;
 import handsome.Ui;
+import handsome.exception.HandsomeException;
 
 import java.io.IOException;
 
