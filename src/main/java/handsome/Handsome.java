@@ -1,9 +1,9 @@
 package handsome;
 
+import java.io.IOException;
+
 import handsome.command.Command;
 import handsome.exception.HandsomeException;
-
-import java.io.IOException;
 
 public class Handsome {
     private final Storage storage;
@@ -28,7 +28,7 @@ public class Handsome {
                 isExit = command.isExit();
             } catch (HandsomeException error) {
                 ui.showError(error.getMessage());
-            } catch (IOException ioException){
+            } catch (IOException ioException) {
                 ui.showError("IO Error: " + ioException.getMessage());
             } finally {
                 ui.showLine();
