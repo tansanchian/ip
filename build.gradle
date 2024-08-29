@@ -5,6 +5,8 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
+mainClassName = "handsome.Handsome"
+
 repositories {
     mavenCentral()
 }
@@ -34,6 +36,7 @@ application {
 
 shadowJar {
     archiveBaseName = "handsome"
+    archiveFileName = "handsome.jar"
     archiveClassifier = null
 }
 
