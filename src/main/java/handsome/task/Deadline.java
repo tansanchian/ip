@@ -1,8 +1,8 @@
 package handsome.task;
 
-import handsome.exception.InvalidTaskException;
-
 import java.time.DateTimeException;
+
+import handsome.exception.InvalidTaskException;
 
 
 /**

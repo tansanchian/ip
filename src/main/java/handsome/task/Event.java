@@ -1,10 +1,10 @@
 package handsome.task;
 
-import handsome.exception.InvalidTaskException;
-
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import handsome.exception.InvalidTaskException;
 
 /**
  * The Event class represents a task with a specific start and end time
@@ -43,8 +43,8 @@ public class Event extends Task {
                     throw new InvalidTaskException("End time of event must be later than start time!");
                 }
             } catch (DateTimeException dateTimeException) {
-                throw new InvalidTaskException("Date and time must be formatted correctly for event! Type prompt to check the "
-                        + "correct date format");
+                throw new InvalidTaskException("Date and time must be formatted correctly for event! Type prompt to "
+                        + "check the correct date format");
             }
         }
     }

@@ -50,6 +50,16 @@ public abstract class Task {
     };
 
     /**
+     * Checks if the task's content contains the specified keyword.
+     *
+     * @param keyword The keyword to search for within the task's content.
+     * @return true if the task's content contains the keyword, false otherwise.
+     */
+    public boolean contains(String keyword) {
+        return content.contains(keyword);
+    }
+
+    /**
      * Formats a date string into a more readable format. The input date string
      * should be in the format "yyyy-MM-dd HHmm".
      * The formatted date is returned in the format "Day, dd MMM yyyy, hh:mm a".

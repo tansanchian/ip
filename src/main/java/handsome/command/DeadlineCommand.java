@@ -1,13 +1,13 @@
 package handsome.command;
 
+import java.io.IOException;
+
 import handsome.Storage;
 import handsome.TaskList;
 import handsome.Ui;
 import handsome.exception.HandsomeException;
 import handsome.exception.InvalidTaskException;
 import handsome.task.Deadline;
-
-import java.io.IOException;
 
 /**
  * The DeadlineCommand class handles the "deadline" command, which allows
