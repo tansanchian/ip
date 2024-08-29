@@ -3,8 +3,9 @@ package handsome.task;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import handsome.exception.InvalidTaskException;
 import org.junit.jupiter.api.Test;
+
+import handsome.exception.InvalidTaskException;
 
 public class TaskTest {
     @Test

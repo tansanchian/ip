@@ -7,9 +7,19 @@ import handsome.exception.HandsomeException;
 
 import java.io.IOException;
 
+/**
+ * The UnmarkCommand class handles the "unmark" command, which marks a task
+ * as not done in the Handsome chatBot's task list based on the user's specified index.
+ */
 public class UnmarkCommand extends Command {
     private final String input;
 
+    /**
+     * Constructs a UnmarkCommand object by storing the user input that specifies
+     * which task to mark as undone.
+     *
+     * @param input The input string containing the "unmark" command and the task index.
+     */
     public UnmarkCommand(String input) {
         this.input = input;
     }

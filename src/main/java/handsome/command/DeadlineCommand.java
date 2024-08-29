@@ -9,10 +9,24 @@ import handsome.task.Deadline;
 
 import java.io.IOException;
 
+/**
+ * The DeadlineCommand class handles the "deadline" command, which allows
+ * users to add a new deadline task with a description and due date to the Handsome
+ * chatBot's task list.
+ */
 public class DeadlineCommand extends Command {
     private final String description;
     private final String deadline;
 
+    /**
+     * Constructs a DeadlineCommand object by parsing the user input to
+     * extract the deadline task description and due date.
+     * The input must be in the format: {@code deadline <description> /by <due date>}.
+     * If the format is incorrect or missing required information, an exception is thrown.
+     *
+     * @param input The input string containing the deadline command details.
+     * @throws InvalidTaskException If the input format is incorrect or required fields are missing.
+     */
     public DeadlineCommand(String input) throws InvalidTaskException {
         try {
             String[] temp = input.split("/by");

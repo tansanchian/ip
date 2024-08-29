@@ -6,10 +6,28 @@ import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * The Event class represents a task with a specific start and end time
+ * in the Handsome chatBot application. It extends the Task class and adds
+ * start and end times to the task description.
+ */
 public class Event extends Task {
     private final String startTime;
     private final String endTime;
 
+    /**
+     * Constructs an Event object with the specified content, status, start time, and end time.
+     * If the isFormatted parameter is false, the start and end times are formatted using the
+     * formatDate method. If the start time is after the end time, an exception is thrown.
+     *
+     * @param content     The description of the event task.
+     * @param isDone      The status of the task, either marked as done or not done.
+     * @param startTime   The start time of the event as a string.
+     * @param endTime     The end time of the event as a string.
+     * @param isFormatted A boolean indicating whether the start and end times are already formatted.
+     * @throws InvalidTaskException If the date and time are incorrectly formatted or if the end time
+     *                              is earlier than the start time.
+     */
     public Event(String content, String isDone, String startTime, String endTime, boolean isFormatted)
             throws InvalidTaskException {
         super(content, isDone);
