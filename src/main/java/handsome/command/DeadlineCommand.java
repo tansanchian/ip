@@ -1,10 +1,10 @@
 package handsome.command;
 
+import handsome.Storage;
 import handsome.TaskList;
+import handsome.Ui;
 import handsome.exception.HandsomeException;
 import handsome.exception.InvalidTaskException;
-import handsome.Storage;
-import handsome.Ui;
 import handsome.task.Deadline;
 
 import java.io.IOException;

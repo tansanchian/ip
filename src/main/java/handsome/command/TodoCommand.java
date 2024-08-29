@@ -1,12 +1,12 @@
 package handsome.command;
 
+import java.io.IOException;
+
 import handsome.Storage;
 import handsome.TaskList;
 import handsome.Ui;
 import handsome.exception.HandsomeException;
 import handsome.task.ToDo;
-
-import java.io.IOException;
 
 public class TodoCommand extends Command {
     private final String description;
