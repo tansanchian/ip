@@ -11,9 +11,23 @@ import handsome.task.Deadline;
 import handsome.task.Event;
 import handsome.task.Task;
 
+/**
+ * The TaskList class manages the list of tasks in the Handsome chatBot
+ * application, handling the addition, removal, and modification of tasks.
+ * This class loads tasks from a file, updates task statuses, and converts
+ * task data into a string format suitable for saving to the storage file.
+ */
 public class TaskList {
     private final ArrayList<Task> tasks = new ArrayList<>();
 
+    /**
+     * Constructs a TaskList object by loading tasks from a specified file.
+     * The constructor reads each line from the file, parses task data, and
+     * initializes the task list. Tasks are identified by their type and loaded
+     * accordingly as todo, deadline, or event tasks.
+     *
+     * @param file The File object containing saved task data.
+     */
     public TaskList(File file) {
         try {
             Scanner handsomeScanner = new Scanner(file);
@@ -46,22 +60,48 @@ public class TaskList {
         return tasks.size();
     }
 
+    /**
+     * Marks the task at the specified index as done.
+     *
+     * @param index The index of the task to mark as done.
+     */
     public void markDone(int index) {
         tasks.get(index).markDone();
     }
 
+    /**
+     * Marks the task at the specified index as not done.
+     *
+     * @param index The index of the task to mark as not done.
+     */
     public void markUndone(int index) {
         tasks.get(index).markUndone();
     }
 
+    /**
+     * Removes the task at the specified index from the list.
+     *
+     * @param index The index of the task to be removed.
+     */
     public void remove(int index) {
         tasks.remove(index);
     }
 
+    /**
+     * Returns the string representation of the task at the specified index.
+     *
+     * @param index The index of the task to retrieve.
+     * @return A string representation of the task.
+     */
     public String getStringOfIndex(int index) {
         return tasks.get(index).toString();
     }
 
+    /**
+     * Adds a new task to the task list.
+     *
+     * @param task The {@code Task} object to be added.
+     */
     public void add(Task task) {
         tasks.add(task);
     }
