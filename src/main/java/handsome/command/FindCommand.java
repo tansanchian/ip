@@ -22,9 +22,9 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Storage storage, Ui ui) {
+    public String execute(TaskList tasks, Storage storage, Ui ui) {
         String keyword = input.substring(5);
-        ui.showMatchingTasks(tasks.findKeyword(keyword));
+        return ui.showMatchingTasks(tasks.findKeyword(keyword));
     }
 
     @Override

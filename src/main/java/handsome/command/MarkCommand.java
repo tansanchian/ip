@@ -25,15 +25,15 @@ public class MarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
+    public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
         int index = toNumber(input.substring(5), tasks.getSize()) - 1;
         tasks.markDone(index);
         storage.writeToFile(tasks);
-        ui.showMarkText(index, tasks);
+        return ui.showMarkText(index, tasks);
     }
 
     @Override
     public boolean isExit() {
         return false;
-    };
+    }
 }

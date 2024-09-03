@@ -11,12 +11,12 @@ import handsome.exception.HandsomeException;
  */
 public class ListCommand extends Command {
     @Override
-    public void execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException {
-        ui.showList(tasks);
-    };
+    public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException {
+        return ui.showList(tasks);
+    }
 
     @Override
     public boolean isExit() {
         return false;
-    };
+    }
 }

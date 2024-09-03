@@ -25,15 +25,15 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
+    public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
         int index = toNumber(input.substring(7), tasks.getSize()) - 1;
         tasks.remove(index);
         storage.writeToFile(tasks);
-        ui.showDeleteText(index, tasks);
-    };
+        return ui.showDeleteText(index, tasks);
+    }
 
     @Override
     public boolean isExit() {
         return false;
-    };
+    }
 }
