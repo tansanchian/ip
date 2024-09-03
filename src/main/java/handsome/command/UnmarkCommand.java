@@ -25,15 +25,15 @@ public class UnmarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
+    public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
         int index = toNumber(input.substring(7), tasks.getSize()) - 1;
         tasks.markUndone(index);
         storage.writeToFile(tasks);
-        ui.showUnmarkText(index, tasks);
-    };
+        return ui.showUnmarkText(index, tasks);
+    }
 
     @Override
     public boolean isExit() {
         return false;
-    };
+    }
 }

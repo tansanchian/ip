@@ -28,14 +28,14 @@ public class TodoCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
+    public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
         tasks.add(new ToDo(description, "[ ]"));
         storage.writeToFile(tasks);
-        ui.showTaskText(tasks);
-    };
+        return ui.showTaskText(tasks);
+    }
 
     @Override
     public boolean isExit() {
         return false;
-    };
+    }
 }

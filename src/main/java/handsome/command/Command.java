@@ -25,7 +25,7 @@ public abstract class Command {
      * @throws HandsomeException If there is an error during the command execution.
      * @throws IOException       If an I/O error occurs while interacting with the storage.
      */
-    public abstract void execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException;
+    public abstract String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException;
 
     /**
      * Indicates whether this command causes the program to exit.

@@ -1,7 +1,6 @@
 package handsome;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import handsome.task.Task;
 
@@ -11,39 +10,15 @@ import handsome.task.Task;
  * greetings, errors, and task updates.
  */
 public class Ui {
-    private final Scanner scanner;
-
-    /**
-     * Constructs a new Ui object, initializing the scanner
-     * to read user input from the console.
-     */
-    public Ui() {
-        scanner = new Scanner(System.in);
-    }
-
     /**
      * Greets the user when the Handsome chatBot starts.
      */
-    public void greet() {
-        System.out.println("""
+    public String greet() {
+        String greetText = """
                 Hello! I'm Handsome
-                What can I do for you?""");
-    }
-
-    /**
-     * Reads and returns user input from the console.
-     *
-     * @return The string input entered by the user.
-     */
-    public String readInput() {
-        return scanner.nextLine();
-    }
-
-    /**
-     * Displays a horizontal line separator for visual clarity in the console.
-     */
-    public void showLine() {
-        System.out.println("___________________________________________________");
+                What can I do for you?""";
+        System.out.println(greetText);
+        return greetText;
     }
 
     /**
@@ -51,15 +26,17 @@ public class Ui {
      *
      * @param errorMessage The error message to be shown.
      */
-    public void showError(String errorMessage) {
+    public String showError(String errorMessage) {
         System.out.println(errorMessage);
+        return errorMessage;
     }
 
     /**
      * Displays a goodbye message when the user exits the chatBot.
      */
-    public void showByeText() {
+    public String showByeText() {
         System.out.println("Bye. Hope to see you again soon!");
+        return "Bye. Hope to see you again soon!";
     }
 
     /**
@@ -68,9 +45,10 @@ public class Ui {
      * @param index The index of the task that was marked as done.
      * @param tasks The TaskList containing the tasks.
      */
-    public void showMarkText(int index, TaskList tasks) {
-        System.out.println("Nice! I've marked this task as done:");
-        System.out.println(tasks.getStringOfIndex(index));
+    public String showMarkText(int index, TaskList tasks) {
+        String markedTask = "Nice! I've marked this task as done:\n" + tasks.getStringOfIndex(index);
+        System.out.println(markedTask);
+        return markedTask;
     }
 
     /**
@@ -79,9 +57,10 @@ public class Ui {
      * @param index The index of the task that was marked as not done.
      * @param tasks The TaskList containing the tasks.
      */
-    public void showUnmarkText(int index, TaskList tasks) {
-        System.out.println("OK, I've marked this task as not done yet:");
-        System.out.println(tasks.getStringOfIndex(index));
+    public String showUnmarkText(int index, TaskList tasks) {
+        String unmarkedTask = "OK, I've marked this task as not done yet:\n" + tasks.getStringOfIndex(index);
+        System.out.println(unmarkedTask);
+        return unmarkedTask;
     }
 
     /**
@@ -90,10 +69,10 @@ public class Ui {
      * @param index The index of the task that was deleted.
      * @param tasks The TaskList containing the tasks.
      */
-    public void showDeleteText(int index, TaskList tasks) {
-        System.out.println("Noted. I've removed this task: ");
-        System.out.println(tasks.getStringOfIndex(index));
-        System.out.println("Now you have " + tasks.getSize() + " tasks in the list.");
+    public String showDeleteText(int index, TaskList tasks) {
+        String deletedTask = "Noted. I've removed this task:\n" + tasks.getStringOfIndex(index);
+        System.out.println(deletedTask);
+        return deletedTask;
     }
 
     /**
@@ -102,23 +81,25 @@ public class Ui {
      *
      * @param tasks The TaskList containing the tasks to be displayed.
      */
-    public void showList(TaskList tasks) {
+    public String showList(TaskList tasks) {
         if (tasks.getSize() == 0) {
             System.out.println("There is currently nothing in your list!");
-            return;
+            return "There is currently nothing in your list!";
         }
-        System.out.println("Here are the tasks in your list:");
+        StringBuilder stringBuilder = new StringBuilder("Here are the tasks in your list:\n");
         for (int i = 0; i < tasks.getSize(); i++) {
             int count = i + 1;
-            System.out.println(count + "." + tasks.getStringOfIndex(i));
+            stringBuilder.append(count).append(".").append(tasks.getStringOfIndex(i)).append("\n");
         }
+        System.out.println(stringBuilder);
+        return stringBuilder.toString();
     }
 
     /**
      * Displays the list of available commands that the user can use.
      */
-    public void showPrompt() {
-        System.out.println("1. todo <description>: Add a todo task\n"
+    public String showPrompt() {
+        String prompt = "1. todo <description>: Add a todo task\n"
                 + "2. deadline <description> /by <date> (date format: yyyy-mm-dd <time in 24 hr format>)"
                 + ": Add a deadline task\n"
                 + "3. event <description> /from <date> /to <date> (date format: yyyy-mm-dd <time in 24 hr format>)"
@@ -128,7 +109,9 @@ public class Ui {
                 + "6. delete <task index>: Delete <index> task from tasks list"
                 + "7. list: Show the current tasks list\n"
                 + "8. prompt: Show the available commands\n"
-                + "9. bye : Exit and close the chat bot");
+                + "9. bye : Exit and close the chat bot";
+        System.out.println(prompt);
+        return prompt;
     }
 
     /**
@@ -136,10 +119,11 @@ public class Ui {
      *
      * @param tasks The TaskList containing the tasks, including the newly added task.
      */
-    public void showTaskText(TaskList tasks) {
-        System.out.println("Got it. I've added this task:");
-        System.out.println(tasks.getStringOfIndex(tasks.getSize() - 1));
-        System.out.println("Now you have " + tasks.getSize() + " tasks in the list.");
+    public String showTaskText(TaskList tasks) {
+        String tasksText = "Got it. I've added this task:\n" + tasks.getStringOfIndex(tasks.getSize() - 1)
+                + "\n\"Now you have " + tasks.getSize() + " tasks in the list.";
+        System.out.println(tasksText);
+        return tasksText;
     }
 
     /**
@@ -149,15 +133,17 @@ public class Ui {
      *
      * @param tasks An {@code ArrayList<Task>} containing the tasks that match the search keyword.
      */
-    public void showMatchingTasks(ArrayList<Task> tasks) {
+    public String showMatchingTasks(ArrayList<Task> tasks) {
         if (tasks.isEmpty()) {
             System.out.println("There are no matching tasks in your list!");
-            return;
+            return "There are no matching tasks in your list!";
         }
-        System.out.println("Here are the matching tasks in your list:");
+        StringBuilder stringBuilder = new StringBuilder("Here are the matching tasks in your list:\n");
         int i = 1;
         for (Task t : tasks) {
-            System.out.println(i + "." + t.toString());
+            stringBuilder.append(i).append(".").append(t.toString()).append("\n");
         }
+        System.out.println(stringBuilder);
+        return stringBuilder.toString();
     }
 }
