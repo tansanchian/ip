@@ -26,7 +26,8 @@ public class DeleteCommand extends Command {
 
     @Override
     public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
-        int index = toNumber(input.substring(7), tasks.getSize()) - 1;
+        String deletedTask = input.substring(7);
+        int index = toNumber(deletedTask, tasks.getSize()) - 1;
         tasks.remove(index);
         storage.writeToFile(tasks);
         return ui.showDeleteText(index, tasks);

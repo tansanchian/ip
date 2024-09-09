@@ -11,17 +11,6 @@ import handsome.task.Task;
  */
 public class Ui {
     /**
-     * Greets the user when the Handsome chatBot starts.
-     */
-    public String greet() {
-        String greetText = """
-                Hello! I'm Handsome
-                What can I do for you?""";
-        System.out.println(greetText);
-        return greetText;
-    }
-
-    /**
      * Displays an error message to the user.
      *
      * @param errorMessage The error message to be shown.
@@ -35,8 +24,9 @@ public class Ui {
      * Displays a goodbye message when the user exits the chatBot.
      */
     public String showByeText() {
-        System.out.println("Bye. Hope to see you again soon!");
-        return "Bye. Hope to see you again soon!";
+        String byeText = "Bye. Hope to see you again soon!";
+        System.out.println(byeText);
+        return byeText;
     }
 
     /**
@@ -46,7 +36,8 @@ public class Ui {
      * @param tasks The TaskList containing the tasks.
      */
     public String showMarkText(int index, TaskList tasks) {
-        String markedTask = "Nice! I've marked this task as done:\n" + tasks.getStringOfIndex(index);
+        String task = tasks.getStringOfIndex(index);
+        String markedTask = "Nice! I've marked this task as done:\n" + task;
         System.out.println(markedTask);
         return markedTask;
     }
@@ -58,7 +49,8 @@ public class Ui {
      * @param tasks The TaskList containing the tasks.
      */
     public String showUnmarkText(int index, TaskList tasks) {
-        String unmarkedTask = "OK, I've marked this task as not done yet:\n" + tasks.getStringOfIndex(index);
+        String task = tasks.getStringOfIndex(index);
+        String unmarkedTask = "OK, I've marked this task as not done yet:\n" + task;
         System.out.println(unmarkedTask);
         return unmarkedTask;
     }
@@ -70,7 +62,8 @@ public class Ui {
      * @param tasks The TaskList containing the tasks.
      */
     public String showDeleteText(int index, TaskList tasks) {
-        String deletedTask = "Noted. I've removed this task:\n" + tasks.getStringOfIndex(index);
+        String task = tasks.getStringOfIndex(index);
+        String deletedTask = "Noted. I've removed this task:\n" + task;
         System.out.println(deletedTask);
         return deletedTask;
     }
@@ -83,8 +76,9 @@ public class Ui {
      */
     public String showList(TaskList tasks) {
         if (tasks.getSize() == 0) {
-            System.out.println("There is currently nothing in your list!");
-            return "There is currently nothing in your list!";
+            String emptyListText = "There is currently nothing in your list!";
+            System.out.println(emptyListText);
+            return emptyListText;
         }
         StringBuilder stringBuilder = new StringBuilder("Here are the tasks in your list:\n");
         for (int i = 0; i < tasks.getSize(); i++) {
@@ -120,8 +114,10 @@ public class Ui {
      * @param tasks The TaskList containing the tasks, including the newly added task.
      */
     public String showTaskText(TaskList tasks) {
-        String tasksText = "Got it. I've added this task:\n" + tasks.getStringOfIndex(tasks.getSize() - 1)
-                + "\n\"Now you have " + tasks.getSize() + " tasks in the list.";
+        int size = tasks.getSize();
+        String task = tasks.getStringOfIndex(size - 1);
+        String tasksText = "Got it. I've added this task:\n" + task
+                + "\n\"Now you have " + size + " tasks in the list.";
         System.out.println(tasksText);
         return tasksText;
     }
@@ -135,8 +131,9 @@ public class Ui {
      */
     public String showMatchingTasks(ArrayList<Task> tasks) {
         if (tasks.isEmpty()) {
-            System.out.println("There are no matching tasks in your list!");
-            return "There are no matching tasks in your list!";
+            String noMatchingString = "There are no matching tasks in your list!";
+            System.out.println(noMatchingString);
+            return noMatchingString;
         }
         StringBuilder stringBuilder = new StringBuilder("Here are the matching tasks in your list:\n");
         int i = 1;

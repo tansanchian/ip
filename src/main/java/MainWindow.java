@@ -46,6 +46,20 @@ public class MainWindow extends AnchorPane {
      * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
+    private void generateDialog(String input, String response, String commandType) {
+        dialogContainer.getChildren().addAll(
+                DialogBox.getUserDialog(input, userImage),
+                DialogBox.getHandsomeDialog(response, handsomeImage, commandType)
+        );
+        userInput.clear();
+    }
+    private void checkByeInput(String input) {
+        if (input.equals("bye")) {
+            PauseTransition delay = new PauseTransition(Duration.seconds(1));
+            delay.setOnFinished(event -> Platform.exit());
+            delay.play();
+        }
+    }
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
@@ -54,15 +68,8 @@ public class MainWindow extends AnchorPane {
         String response = handsome.run(input);
         assert response != null : "Response from Handsome should not be null.";
         String commandType = handsome.getCommandType();
-        dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(input, userImage),
-                DialogBox.getHandsomeDialog(response, handsomeImage, commandType)
-        );
-        userInput.clear();
-        if (input.equals("bye")) {
-            PauseTransition delay = new PauseTransition(Duration.seconds(1));
-            delay.setOnFinished(event -> Platform.exit());
-            delay.play();
-        }
+        assert !commandType.isEmpty() : "Command type should not be empty String";
+        generateDialog(input, response, commandType);
+        checkByeInput(input);
     }
 }

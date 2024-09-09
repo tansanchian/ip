@@ -20,6 +20,10 @@ import handsome.task.ToDo;
 public class TaskList {
     private final ArrayList<Task> tasks = new ArrayList<>();
 
+    enum TaskType {
+        TODO, DEADLINE, EVENT
+    }
+
     /**
      * Constructs a TaskList object by loading tasks from a specified file.
      * The constructor reads each line from the file, parses task data, and
@@ -34,26 +38,39 @@ public class TaskList {
             while (handsomeScanner.hasNext()) {
                 String[] task = handsomeScanner.nextLine().split(" \\| ");
                 assert task.length >= 2 : "Invalid task data format.";
-                String type = task[0];
+                TaskType type = getType(task[0]);
                 String isDone = task[1];
                 switch (type) {
-                case "T":
+                case TODO:
                     tasks.add(new ToDo(task[2], isDone));
                     break;
-                case "D":
+                case DEADLINE:
                     tasks.add(new Deadline(task[2], isDone, task[3], true));
                     break;
-                case "E":
+                case EVENT:
                     tasks.add(new Event(task[2], isDone, task[3], task[4], true));
                     break;
                 default:
-                    throw new InvalidTaskException("Error Loading");
+                    assert false : "Invalid type" + type;
                 }
             }
         } catch (FileNotFoundException fileError) {
             System.out.println("File not found!");
         } catch (ArrayIndexOutOfBoundsException | InvalidTaskException error) {
             System.out.println("Data file corrupted!");
+        }
+    }
+
+    private TaskType getType(String type) throws InvalidTaskException {
+        switch (type) {
+        case "T":
+            return TaskType.TODO;
+        case "D":
+            return TaskType.DEADLINE;
+        case "E":
+            return TaskType.EVENT;
+        default:
+            throw new InvalidTaskException("Error Loading");
         }
     }
 
