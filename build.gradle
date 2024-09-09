@@ -5,7 +5,7 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
-mainClassName = "handsome.Handsome"
+mainClassName = "Launcher"
 
 repositories {
     mavenCentral()
@@ -54,7 +54,7 @@ shadowJar {
     archiveClassifier = null
 }
 
-run{
+run {
     standardInput = System.in
 }
 
