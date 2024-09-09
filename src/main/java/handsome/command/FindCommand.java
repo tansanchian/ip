@@ -1,11 +1,11 @@
 package handsome.command;
 
+import java.util.ArrayList;
+
 import handsome.Storage;
 import handsome.TaskList;
 import handsome.Ui;
 import handsome.task.Task;
-
-import java.util.ArrayList;
 
 /**
  * The FindCommand class handles the "find" command, which searches

@@ -37,6 +37,7 @@ public class TaskList {
             Scanner handsomeScanner = new Scanner(file);
             while (handsomeScanner.hasNext()) {
                 String[] task = handsomeScanner.nextLine().split(" \\| ");
+                assert task.length >= 2 : "Invalid task data format.";
                 TaskType type = getType(task[0]);
                 String isDone = task[1];
                 switch (type) {

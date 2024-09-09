@@ -63,8 +63,12 @@ public class MainWindow extends AnchorPane {
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
+        assert input != null : "User input should not be null.";
+        assert handsome != null : "Handsome instance should not be null.";
         String response = handsome.run(input);
+        assert response != null : "Response from Handsome should not be null.";
         String commandType = handsome.getCommandType();
+        assert !commandType.isEmpty() : "Command type should not be empty String";
         generateDialog(input, response, commandType);
         checkByeInput(input);
     }

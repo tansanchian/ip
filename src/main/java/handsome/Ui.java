@@ -11,17 +11,6 @@ import handsome.task.Task;
  */
 public class Ui {
     /**
-     * Greets the user when the Handsome chatBot starts.
-     */
-    public String greet() {
-        String greetText = """
-                Hello! I'm Handsome
-                What can I do for you?""";
-        System.out.println(greetText);
-        return greetText;
-    }
-
-    /**
      * Displays an error message to the user.
      *
      * @param errorMessage The error message to be shown.
