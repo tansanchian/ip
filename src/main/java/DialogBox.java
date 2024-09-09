@@ -32,6 +32,9 @@ public class DialogBox extends HBox {
             e.printStackTrace();
         }
 
+        assert dialog != null : "Dialog label should be initialized by FXML loader.";
+        assert displayPicture != null : "Display picture ImageView should be initialized by FXML loader.";
+
         dialog.setText(text);
         displayPicture.setImage(img);
     }
