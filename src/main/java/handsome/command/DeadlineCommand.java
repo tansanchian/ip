@@ -30,11 +30,12 @@ public class DeadlineCommand extends Command {
     public DeadlineCommand(String input) throws InvalidTaskException {
         try {
             String[] temp = input.split("/by");
-            if (temp[0].substring(9).trim().isEmpty()) {
+            String description = temp[0].substring(9).trim();
+            if (description.isEmpty()) {
                 throw new InvalidTaskException("You need provide task description for deadline. "
                         + "Type prompt to check the correct command.");
             }
-            description = temp[0].substring(9).trim();
+            this.description = description;
             deadline = temp[1].trim();
         } catch (ArrayIndexOutOfBoundsException error) {
             throw new InvalidTaskException("Invalid format for deadline! Type prompt to check the correct command.");

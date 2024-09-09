@@ -26,7 +26,8 @@ public class MarkCommand extends Command {
 
     @Override
     public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
-        int index = toNumber(input.substring(5), tasks.getSize()) - 1;
+        String inputIndex = input.substring(5);
+        int index = toNumber(inputIndex, tasks.getSize()) - 1;
         tasks.markDone(index);
         storage.writeToFile(tasks);
         return ui.showMarkText(index, tasks);
