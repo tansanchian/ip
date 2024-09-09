@@ -49,7 +49,10 @@ public class MainWindow extends AnchorPane {
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
+        assert input != null : "User input should not be null.";
+        assert handsome != null : "Handsome instance should not be null.";
         String response = handsome.run(input);
+        assert response != null : "Response from Handsome should not be null.";
         String commandType = handsome.getCommandType();
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
