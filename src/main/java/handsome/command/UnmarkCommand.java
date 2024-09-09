@@ -26,7 +26,8 @@ public class UnmarkCommand extends Command {
 
     @Override
     public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
-        int index = toNumber(input.substring(7), tasks.getSize()) - 1;
+        String inputIndex = input.substring(7);
+        int index = toNumber(inputIndex, tasks.getSize()) - 1;
         tasks.markUndone(index);
         storage.writeToFile(tasks);
         return ui.showUnmarkText(index, tasks);

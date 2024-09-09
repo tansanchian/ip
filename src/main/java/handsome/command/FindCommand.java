@@ -3,6 +3,9 @@ package handsome.command;
 import handsome.Storage;
 import handsome.TaskList;
 import handsome.Ui;
+import handsome.task.Task;
+
+import java.util.ArrayList;
 
 /**
  * The FindCommand class handles the "find" command, which searches
@@ -24,7 +27,8 @@ public class FindCommand extends Command {
     @Override
     public String execute(TaskList tasks, Storage storage, Ui ui) {
         String keyword = input.substring(5);
-        return ui.showMatchingTasks(tasks.findKeyword(keyword));
+        ArrayList<Task> matchedTasks = tasks.findKeyword(keyword);
+        return ui.showMatchingTasks(matchedTasks);
     }
 
     @Override

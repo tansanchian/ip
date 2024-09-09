@@ -32,11 +32,12 @@ public class EventCommand extends Command {
     public EventCommand(String input) throws InvalidTaskException {
         try {
             String[] temp = input.split("/from");
-            if (temp[0].substring(6).trim().isEmpty()) {
+            String description = temp[0].substring(6).trim();
+            if (description.isEmpty()) {
                 throw new InvalidTaskException("You need provide task description for event. "
                         + "Type prompt to check the correct command.");
             }
-            description = temp[0].substring(6).trim();
+            this.description = description;
             start = temp[1].split("/to")[0].trim();
             end = temp[1].split("/to")[1].trim();
         } catch (PatternSyntaxException | ArrayIndexOutOfBoundsException error) {

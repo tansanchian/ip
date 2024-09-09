@@ -11,7 +11,7 @@ import java.io.IOException;
  * task data is persisted between sessions.
  */
 public class Storage {
-    private File handsome;
+    private final File handsomeList;
 
     /**
      * Constructs a new Storage object, initializing the storage
@@ -20,22 +20,30 @@ public class Storage {
      * and the "handsome.txt" file. If they are missing, it creates them.
      */
     public Storage() {
-        try {
-            File directory = new File("./data");
-            if (!directory.exists()) {
-                if (!directory.mkdir()) {
-                    System.out.println("Failed to create directory!");
-                }
-            }
-            handsome = new File("./data/handsome.txt");
-            if (!handsome.exists()) {
-                if (!handsome.createNewFile()) {
-                    System.out.println("File already exists but was not found earlier!");
-                }
-            }
-        } catch (IOException ioException) {
-            System.out.println("IO ERROR: " + ioException.getMessage());
+        createDirectory();
+        handsomeList = createFile();
+    }
+
+    private void createDirectory() {
+        File directory = new File("./data");
+        if (!directory.exists()) {
+            boolean isDirectoryCreated = directory.mkdir();
+            assert isDirectoryCreated : "Failed to create directory: ./data";
         }
+    }
+
+    private File createFile() {
+        File file = new File("./data/handsome.txt");
+        if (!file.exists()) {
+            try {
+                boolean isFileCreated = file.createNewFile();
+                assert isFileCreated : "Failed to create file: " + "./data/handsome.txt";
+            } catch (IOException ioException) {
+                System.out.println("IO ERROR while creating file " + "./data/handsome.txt" + ": "
+                        + ioException.getMessage());
+            }
+        }
+        return file;
     }
 
     /**
@@ -43,7 +51,7 @@ public class Storage {
      * @return The File object representing the task data file.
      */
     public File load() {
-        return handsome;
+        return handsomeList;
     }
 
     /**
