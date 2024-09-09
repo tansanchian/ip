@@ -14,6 +14,7 @@ import handsome.exception.InvalidTaskException;
 public class Event extends Task {
     private final String startTime;
     private final String endTime;
+    private boolean isArchived = false;
 
     /**
      * Constructs an Event object with the specified content, status, start time, and end time.
@@ -47,6 +48,21 @@ public class Event extends Task {
                         + "check the correct date format");
             }
         }
+    }
+
+    @Override
+    public boolean isArchived() {
+        return isArchived;
+    }
+
+    @Override
+    public void archive() {
+        isArchived = true;
+    }
+
+    @Override
+    public void unarchive() {
+        isArchived = false;
     }
 
     @Override

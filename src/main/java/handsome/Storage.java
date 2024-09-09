@@ -20,11 +20,11 @@ public class Storage {
      * and the "handsome.txt" file. If they are missing, it creates them.
      */
     public Storage() {
-        createDirectory();
-        handsomeList = createFile();
+        createDirectoryIfNotExist();
+        handsomeList = getFile();
     }
 
-    private void createDirectory() {
+    private void createDirectoryIfNotExist() {
         File directory = new File("./data");
         if (!directory.exists()) {
             boolean isDirectoryCreated = directory.mkdir();
@@ -32,7 +32,7 @@ public class Storage {
         }
     }
 
-    private File createFile() {
+    private File getFile() {
         File file = new File("./data/handsome.txt");
         if (!file.exists()) {
             try {

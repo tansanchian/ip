@@ -12,6 +12,7 @@ import handsome.exception.InvalidTaskException;
  */
 public class Deadline extends Task {
     private final String deadline;
+    private boolean isArchived = false;
 
     /**
      * Constructs a Deadline object with the specified content, status, and deadline.
@@ -36,6 +37,21 @@ public class Deadline extends Task {
                         + "Type prompt to check the correct date format");
             }
         }
+    }
+
+    @Override
+    public boolean isArchived() {
+        return isArchived;
+    }
+
+    @Override
+    public void archive() {
+        isArchived = true;
+    }
+
+    @Override
+    public void unarchive() {
+        isArchived = false;
     }
 
     @Override

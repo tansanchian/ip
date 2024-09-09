@@ -20,7 +20,7 @@ import handsome.task.ToDo;
 public class TaskList {
     private final ArrayList<Task> tasks = new ArrayList<>();
 
-    enum TaskType {
+    private enum TaskType {
         TODO, DEADLINE, EVENT
     }
 
@@ -33,6 +33,10 @@ public class TaskList {
      * @param file The File object containing saved task data.
      */
     public TaskList(File file) {
+        loadTasks(file, tasks);
+    }
+
+    private void loadTasks(File file, ArrayList<Task> tasks) {
         try {
             Scanner handsomeScanner = new Scanner(file);
             while (handsomeScanner.hasNext()) {
@@ -138,6 +142,32 @@ public class TaskList {
             }
         }
         return ans;
+    }
+
+    public boolean isArchived(int index) {
+        return tasks.get(index).isArchived();
+    }
+
+    /**
+     * Archives all tasks in the current task list.
+     * This method iterates over all tasks in the task list and calls the archive method
+     * on each task. The archiving process is handled by the archive method of the Task class.
+     */
+    public void archiveTasks() {
+        for (Task task : tasks) {
+            task.archive();
+        }
+    }
+
+    /**
+     * Unarchives all tasks in the current task list.
+     * This method iterates over all tasks in the task list and calls the unarchive method
+     * on each task. The unarchiving process is handled by the unarchive method of the Task class.
+     */
+    public void unarchiveTasks() {
+        for (Task task : tasks) {
+            task.unarchive();
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package handsome;
 
+import handsome.command.ArchiveCommand;
 import handsome.command.ByeCommand;
 import handsome.command.Command;
 import handsome.command.DeadlineCommand;
@@ -10,6 +11,7 @@ import handsome.command.ListCommand;
 import handsome.command.MarkCommand;
 import handsome.command.PromptCommand;
 import handsome.command.TodoCommand;
+import handsome.command.UnarchiveCommand;
 import handsome.command.UnmarkCommand;
 import handsome.exception.HandsomeException;
 import handsome.exception.InvalidSyntaxException;
@@ -47,6 +49,10 @@ public class Parser {
             return new FindCommand(input);
         } else if (input.equals("list")) {
             return new ListCommand();
+        } else if (input.equals("archive")) {
+            return new ArchiveCommand();
+        } else if (input.equals("unarchive")) {
+            return new UnarchiveCommand();
         } else if (input.startsWith("deadline ")) {
             return new DeadlineCommand(input);
         } else if (input.startsWith("event ")) {

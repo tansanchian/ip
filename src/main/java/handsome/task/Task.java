@@ -75,7 +75,9 @@ public abstract class Task {
                 + d.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH) + " " + d.getYear() + ", "
                 + t.format(DateTimeFormatter.ofPattern("hh:mm a"));
     }
-
+    public abstract boolean isArchived();
+    public abstract void archive();
+    public abstract void unarchive();
     @Override
     public String toString() {
         return isDone + " " + content + " ";

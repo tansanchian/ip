@@ -6,6 +6,7 @@ package handsome.task;
  * the Task class and adds a simple label indicating the task type.
  */
 public class ToDo extends Task {
+    private boolean isArchived = false;
     /**
      * Constructs a ToDo task with the specified content and status.
      *
@@ -14,6 +15,20 @@ public class ToDo extends Task {
      */
     public ToDo(String content, String isDone) {
         super(content, isDone);
+    }
+    @Override
+    public boolean isArchived() {
+        return isArchived;
+    }
+
+    @Override
+    public void archive() {
+        isArchived = true;
+    }
+
+    @Override
+    public void unarchive() {
+        isArchived = false;
     }
 
     @Override

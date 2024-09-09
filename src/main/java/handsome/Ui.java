@@ -75,18 +75,21 @@ public class Ui {
      * @param tasks The TaskList containing the tasks to be displayed.
      */
     public String showList(TaskList tasks) {
-        if (tasks.getSize() == 0) {
+        StringBuilder stringBuilder = new StringBuilder();
+        int j = 1;
+        for (int i = 0; i < tasks.getSize(); i++) {
+            if (!tasks.isArchived(i)) {
+                stringBuilder.append(j).append(".").append(tasks.getStringOfIndex(i)).append("\n");
+                j++;
+            }
+        }
+        if (tasks.getSize() == 0 || j == 1) {
             String emptyListText = "There is currently nothing in your list!";
             System.out.println(emptyListText);
             return emptyListText;
         }
-        StringBuilder stringBuilder = new StringBuilder("Here are the tasks in your list:\n");
-        for (int i = 0; i < tasks.getSize(); i++) {
-            int count = i + 1;
-            stringBuilder.append(count).append(".").append(tasks.getStringOfIndex(i)).append("\n");
-        }
-        System.out.println(stringBuilder);
-        return stringBuilder.toString();
+        System.out.println("Here are the tasks in your list:\n" + stringBuilder);
+        return "Here are the tasks in your list:\n" + stringBuilder;
     }
 
     /**
@@ -103,7 +106,9 @@ public class Ui {
                 + "6. delete <task index>: Delete <index> task from tasks list"
                 + "7. list: Show the current tasks list\n"
                 + "8. prompt: Show the available commands\n"
-                + "9. bye : Exit and close the chat bot";
+                + "9. bye : Exit and close the chat bot\n"
+                + "10. archive: Archive the task list\n"
+                + "11. unarchive: Unarchive the task list";
         System.out.println(prompt);
         return prompt;
     }
@@ -117,7 +122,7 @@ public class Ui {
         int size = tasks.getSize();
         String task = tasks.getStringOfIndex(size - 1);
         String tasksText = "Got it. I've added this task:\n" + task
-                + "\n\"Now you have " + size + " tasks in the list.";
+                + "\n\"Now you have " + size + " tasks in the list. (included archived tasks)";
         System.out.println(tasksText);
         return tasksText;
     }
@@ -142,5 +147,23 @@ public class Ui {
         }
         System.out.println(stringBuilder);
         return stringBuilder.toString();
+    }
+
+    /**
+     * Displays a message indicating tha the task list has been archived.
+     */
+    public String showArchiveText() {
+        String ArchiveText = "Task List is successfully archived!";
+        System.out.println(ArchiveText);
+        return ArchiveText;
+    }
+
+    /**
+     * Displays a message indicating tha the task list has been unarchived.
+     */
+    public String showUnarchiveText() {
+        String UnarchiveText = "Task List is successfully unarchived!";
+        System.out.println(UnarchiveText);
+        return UnarchiveText;
     }
 }
