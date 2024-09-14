@@ -153,17 +153,17 @@ public class Ui {
      * Displays a message indicating tha the task list has been archived.
      */
     public String showArchiveText() {
-        String ArchiveText = "Task List is successfully archived!";
-        System.out.println(ArchiveText);
-        return ArchiveText;
+        String archiveText = "Task List is successfully archived!";
+        System.out.println(archiveText);
+        return archiveText;
     }
 
     /**
      * Displays a message indicating tha the task list has been unarchived.
      */
     public String showUnarchiveText() {
-        String UnarchiveText = "Task List is successfully unarchived!";
-        System.out.println(UnarchiveText);
-        return UnarchiveText;
+        String unarchiveText = "Task List is successfully unarchived!";
+        System.out.println(unarchiveText);
+        return unarchiveText;
     }
 }
