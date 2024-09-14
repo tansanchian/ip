@@ -14,7 +14,7 @@ Expected output:
 ```
 Got it. I've added this task:
 [T][] buy book
-"Now you have 1 tasks in the list. (included archived tasks) 
+Now you have 1 tasks in the list. (included archived tasks) 
 ```
 
 ## Adding deadline: ```deadline <description> /by <date>```
@@ -27,7 +27,7 @@ Expected output:
 ```
 Got it. I've added this task:
 [D][] return book (by: Mon, 23 Dec 2024, 04:00 PM)
-"Now you have 2 tasks in the list. (included archived tasks) 
+Now you have 2 tasks in the list. (included archived tasks) 
 ```
 
 ## Adding event: ```event <description> /from <date> /to(date)```
@@ -40,7 +40,7 @@ Expected output:
 ```
 Got it. I've added this task:
 [E][] party (from: Thu, 12 Dec 2024, 04:00 PM to: Thu, 12 Dec 2024, 05:00 PM)
-"Now you have 3 tasks in the list. (included archived tasks) 
+Now you have 3 tasks in the list. (included archived tasks) 
 ```
 
 ## Marking task: ```mark <task index>```
