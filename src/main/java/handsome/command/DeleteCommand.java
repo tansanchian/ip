@@ -6,6 +6,7 @@ import handsome.Storage;
 import handsome.TaskList;
 import handsome.Ui;
 import handsome.exception.HandsomeException;
+import handsome.task.Task;
 
 /**
  * The DeleteCommand class handles the "delete" command, which removes
@@ -28,9 +29,9 @@ public class DeleteCommand extends Command {
     public String execute(TaskList tasks, Storage storage, Ui ui) throws HandsomeException, IOException {
         String deletedTask = input.substring(7);
         int index = toNumber(deletedTask, tasks.getSize()) - 1;
-        tasks.remove(index);
+        Task task = tasks.remove(index);
         storage.writeToFile(tasks);
-        return ui.showDeleteText(index, tasks);
+        return ui.showDeleteText(task);
     }
 
     @Override

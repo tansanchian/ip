@@ -22,6 +22,7 @@ public class Main extends Application {
             assert ap != null : "AnchorPane should be loaded correctly from FXML.";
             Scene scene = new Scene(ap);
             stage.setScene(scene);
+            stage.setTitle("Handsome");
             fxmlLoader.<MainWindow>getController().setHandsome(handsome); // inject the Duke instance
             stage.show();
         } catch (IOException e) {

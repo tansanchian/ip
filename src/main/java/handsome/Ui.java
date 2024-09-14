@@ -58,11 +58,9 @@ public class Ui {
     /**
      * Displays a message indicating that the task at the specified index has been deleted.
      *
-     * @param index The index of the task that was deleted.
-     * @param tasks The TaskList containing the tasks.
+     * @param task The task that was deleted.
      */
-    public String showDeleteText(int index, TaskList tasks) {
-        String task = tasks.getStringOfIndex(index);
+    public String showDeleteText(Task task) {
         String deletedTask = "Noted. I've removed this task:\n" + task;
         System.out.println(deletedTask);
         return deletedTask;
@@ -103,7 +101,7 @@ public class Ui {
                 + ": Add an event task\n"
                 + "4. mark <task index>: Mark <index> task as done\n"
                 + "5. unmark <task index>: Mark <index> task as not done\n"
-                + "6. delete <task index>: Delete <index> task from tasks list"
+                + "6. delete <task index>: Delete <index> task from tasks list\n"
                 + "7. list: Show the current tasks list\n"
                 + "8. prompt: Show the available commands\n"
                 + "9. bye : Exit and close the chat bot\n"

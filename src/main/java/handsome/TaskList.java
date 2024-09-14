@@ -105,8 +105,10 @@ public class TaskList {
      *
      * @param index The index of the task to be removed.
      */
-    public void remove(int index) {
+    public Task remove(int index) {
+        Task task = tasks.get(index);
         tasks.remove(index);
+        return task;
     }
 
     /**
