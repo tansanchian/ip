@@ -1,6 +1,6 @@
 # Handsome User Guide
 
-![Ui picture](/Ui.png)
+![Ui picture](./Ui.png)
 
 ### Handsome is a chat bot that helps users manage their tasks. Below are the features available.
 
