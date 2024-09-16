@@ -1,24 +1,138 @@
-# Duke project template
+# Handsome User Guide
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+![Ui picture](./docs/Ui.png)
 
-## Setting up in Intellij
+### Handsome is a chat bot that helps users manage their tasks. Below are the features available.
 
-Prerequisites: JDK 17, update Intellij to the most recent version.
+## Adding todo: ```todo <task description>```
 
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project first)
-1. Open the project into Intellij as follows:
-   1. Click `Open`.
-   1. Select the project directory, and click `OK`.
-   1. If there are any further prompts, accept the defaults.
-1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
-   In the same dialog, set the **Project language level** field to the `SDK default` option.
-3. After that, locate the `src/main/java/Duke.java` file, right-click it, and choose `Run Duke.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
-   ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   ```
+### Add a todo task to the task list.
+
+Example: `todo buy book`
+
+Expected output: 
+```
+Got it. I've added this task:
+[T][] buy book
+Now you have 1 tasks in the list. (included archived tasks) 
+```
+
+## Adding deadline: ```deadline <description> /by <date>```
+
+### Add a deadline task to the task list.
+
+Example: `deadline return book /by 2024-12-23 1600`
+
+Expected output:
+```
+Got it. I've added this task:
+[D][] return book (by: Mon, 23 Dec 2024, 04:00 PM)
+Now you have 2 tasks in the list. (included archived tasks) 
+```
+
+## Adding event: ```event <description> /from <date> /to(date)```
+
+### Add an event task to the task list.
+
+Example: `event party /from 2024-12-12 1600 /to 2024-12-12 1700`
+
+Expected output:
+```
+Got it. I've added this task:
+[E][] party (from: Thu, 12 Dec 2024, 04:00 PM to: Thu, 12 Dec 2024, 05:00 PM)
+Now you have 3 tasks in the list. (included archived tasks) 
+```
+
+## Marking task: ```mark <task index>```
+
+### Mark a task in task list as done.
+
+Example: `mark 1`
+
+Expected output:
+```
+Nice! I've marked this task as done:
+[T][X] buy book
+```
+
+## Unmarking task: ```unmark <task index>```
+
+### Mark a task in task list as not done.
+
+Example: `unmark 1`
+
+Expected output:
+```
+Ok, I've marked this task as not done yet:
+[T][ ] buy book
+```
+
+## Deleting task: ```delete <task index>```
+
+### Delete a task from tasks list.
+
+Example: `delete 1`
+
+Expected output:
+```
+Noted. I've removed this task:
+[T][ ] buy book
+```
+
+## Listing the tasks: ```list```
+
+### Show all tasks in task list.
+
+Example: `list`
+
+Expected output:
+```
+Here are the tasks in your list:
+1.[D][ ] return book (by: Mon, 23 Dec 2024, 04:00 PM)
+2.[E][ ] party (from: Thu, 12 Dec 2024, 04:00 PM tp: Thu, 12 Dec 2024, 05:00 PM)
+```
+
+## Showing prompts ```prompt```
+
+### Show all prompts available.
+
+Example: `prompt`
+
+Expected output:
+```
+1. todo <description>: Add a todo task
+2. deadline <description> /by <date> (date format: yyyy-mm-dd <time in 24 hr format>): Add a deadline task
+3. event <description> /from <date> /to <date> (date format: yyyy-mm-dd <time in 24 hr format>): Add an event task
+4. mark <task index>: Mark <index> task as done
+5. unmark <task index>: Mark <index> task as not done
+6. delete <task index>: Delete <index> task from tasks list
+7. list: Show the current tasks list
+8. prompt: Show the available commands
+9. bye : Exit and close the chat bot
+10. archive: Archive the task list
+11. unarchive: Unarchive the task list
+```
+
+## Archiving the list: ```archive```
+
+### Archive the task list so that all current tasks will not be shown till unarchived to achieve a clean state.
+
+Example: `archive`
+
+Expected output:
+```
+Task List is successfully archived!
+```
+The list will not show previous items when ```list``` is called.
+
+## Unarchiving the list: ```unarchive```
+
+### Unarchive the task list so that all archived tasks will show in the list again. 
+
+Example: `unarchive`
+
+Expected output:
+```
+Task List is successfully unarchived!
+```
+The list will now show archived items when ```list``` is called.
